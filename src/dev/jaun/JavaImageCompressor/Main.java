@@ -11,6 +11,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class Main {
@@ -50,7 +52,9 @@ public class Main {
     }
 
     private static String getBase64String() {
-        File imageString = new File("image.txt");
+        Path currentRelativePath = Paths.get("");
+        String currentPath = currentRelativePath.toAbsolutePath().toString();
+        File imageString = new File(currentPath + "\\image.txt");
 
         BufferedReader br;
         try {
